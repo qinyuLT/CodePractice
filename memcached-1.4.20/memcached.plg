@@ -1,0 +1,33 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: memcached - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP6564.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/memcached.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\韩振华\资料\memcached分析\memcached-1.4.20\memcached.c"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP6564.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP6565.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/memcached.pdb" /debug /machine:I386 /out:"Debug/memcached.exe" /pdbtype:sept 
+".\Debug\memcached.obj"
+]
+Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP6565.tmp"
+<h3>Output Window</h3>
+Compiling...
+memcached.c
+f:\韩振华\资料\memcached分析\memcached-1.4.20\memcached.h(13) : fatal error C1083: Cannot open include file: 'sys/socket.h': No such file or directory
+执行 cl.exe 时出错.
+
+
+
+<h3>Results</h3>
+memcached.exe - 1 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
