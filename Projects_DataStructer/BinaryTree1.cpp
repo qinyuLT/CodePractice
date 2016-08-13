@@ -1,4 +1,4 @@
-#include<iostream>
+﻿#include<iostream>
 #include<assert.h>
 #include<stdlib.h>
 using namespace std;
@@ -7,6 +7,7 @@ using namespace std;
 //  重载 operator=
 //  创建二叉树（5种创建方法）
 //  递归遍历  （先序，中序，后序） 
+//  非递归遍历（不用栈、0(1)空间）
 
 template<class Type>
 class BinaryTree
@@ -17,6 +18,7 @@ protected:
         Type data;
         BtNode* leftchild;
         BtNode* rightchild;
+		BtNode(Type x):data(x),leftchild(NULL),rightchild(NULL){}
     };
     typedef BtNode* PBtree;
 
@@ -74,7 +76,25 @@ public:
         PastOrder(root);
         cout << endl;
     }
-
+/////////////////////////////////////////////////////
+	void NNorePreOrder()const
+    {
+        cout <<endl<< "先序遍历(非递归，不用栈)  : ";
+        NNorePreOrder(root);
+        cout << endl;
+    }
+    void NNoreInOrder()const
+    {
+        cout  << "中序遍历(非递归，不用栈)  : ";
+        NNoreInOrder(root);
+        cout << endl;
+    }
+    void NNorePastOrder()const
+    {
+        cout  << "后序遍历(非递归，不用栈)  : ";
+        NNorePastOrder(root);
+        cout << endl;
+    }
 private:
     static BtNode* Buynode()
     {
@@ -162,7 +182,139 @@ private:
         }
         return s;
     }
+/////////////////////////////////////////////////////////
+	static void NNorePreOrder(BtNode *root)
+    {
+		if(root == NULL)return;
+		BtNode *cur = root;
+		BtNode *prev = NULL;
 
+		while(cur != NULL)
+		{
+			if(cur->leftchild == NULL)
+			{
+				cout<<cur->data<<" ";
+				cur = cur->rightchild;
+			}
+			else
+			{
+				prev = cur->leftchild;
+				while(prev->rightchild != NULL && prev->rightchild != cur)
+					prev = prev->rightchild;
+
+				if(prev->rightchild == NULL)
+				{
+					cout<<cur->data<<" "; //中序和先序只是输出位置不同
+					prev->rightchild = cur;
+					cur = cur->leftchild;
+				}
+				else
+				{
+					prev->rightchild = NULL;
+					cur = cur->rightchild;
+				}
+			}
+		}
+    }
+
+    static void NNoreInOrder(BtNode *root)
+    {
+		if(root == NULL)return;
+		BtNode *cur = root;
+		BtNode *prev = NULL;
+
+		while(cur != NULL)
+		{
+			if(cur->leftchild == NULL)
+			{
+				cout<<cur->data<<" ";
+				cur = cur->rightchild;
+			}
+			else
+			{
+				prev = cur->leftchild;
+				while(prev->rightchild != NULL && prev->rightchild != cur)
+					prev = prev->rightchild;
+
+				if(prev->rightchild == NULL)
+				{
+					prev->rightchild = cur;
+					cur = cur->leftchild;
+				}
+				else
+				{
+					prev->rightchild = NULL;
+					cout<<cur->data<<" ";//中序和先序只是输出位置不同
+					cur = cur->rightchild;
+				}
+			}
+		}
+    }
+	
+	static void Reserve(BtNode *from,BtNode *to)
+	{
+		if(from == to)
+			return;
+		BtNode *m = from,*n=from->rightchild,*o;
+		while(true)
+		{
+			o = n->rightchild;
+			n->rightchild = m;
+			m = n;
+			n = o;
+			if(m == to)
+				break;
+		}
+	}
+
+	static void PrintReverse(BtNode *from,BtNode *to)
+	{
+		Reserve(from,to);
+		BtNode *p = to;
+		while(true)
+		{
+			cout<<p->data<<" ";
+			if(p == from)
+				break;
+			p = p->rightchild;
+		}
+		Reserve(to,from);
+	}
+
+    static void NNorePastOrder(BtNode *root)
+    {
+        BtNode newRoot(0);//后序遍历需要创建一个新根
+		newRoot.leftchild = root;
+		BtNode *cur = &newRoot;
+		BtNode *prev = NULL;
+
+		while(cur)
+		{
+			if(cur->leftchild == NULL)
+			{
+				cur = cur->rightchild;
+			}
+			else
+			{
+				prev = cur->leftchild;
+				while(prev->rightchild != NULL && prev->rightchild != cur)
+					prev = prev->rightchild;
+
+				if(prev->rightchild == NULL)
+				{
+					prev->rightchild = cur;
+					cur = cur->leftchild;
+				}
+				else
+				{
+					PrintReverse(cur->leftchild,prev);
+					prev->rightchild = NULL;
+					cur = cur->rightchild;
+				}
+			}
+		}
+    }
+///////////////////////////////////////////////////////////
     static void PreOrder(BtNode *p)
     {
         if(NULL != p)
@@ -192,7 +344,7 @@ private:
             cout<<p->data<<"  ";
         }
     }
-
+///////////////////////////////////////////////////////////
     static BtNode *Copy(const BtNode *p)
     {
         BtNode *newroot;
@@ -220,9 +372,15 @@ int main()
     char *str="ABC##DE##F##G#H##";
 
     mytree.MakeTree(str);
+	//递归遍历
     mytree.PreOrder();
     mytree.InOrder();
     mytree.PastOrder();
+
+	//非递归遍历（不用栈）
+	mytree.NNorePreOrder();
+	mytree.NNoreInOrder();
+	mytree.NNorePastOrder();
 
     BinaryTree<char> youtree(mytree);//拷贝构造
     youtree.PreOrder();

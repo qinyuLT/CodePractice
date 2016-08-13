@@ -11,12 +11,12 @@ class Queue
 {
 private:
     Type *data;
-    int front,rear;//fronté˜Ÿå¤´ï¼Œrearé˜Ÿå°¾
+    int front,rear;//front¶ÓÍ·£¬rear¶ÓÎ²
     int cursize;
     int maxsize;
 
 public:
-/*  //æ‰“å°é˜Ÿåˆ—å…ƒç´ ï¼Œæµ‹è¯•ç”¨
+/*  //´òÓ¡¶ÓÁĞÔªËØ£¬²âÊÔÓÃ
     void print() const
     {
         int k = front;
@@ -41,11 +41,11 @@ public:
         free(data);
         data = NULL;
     }
-    int size() const  { return cursize;}           //é˜Ÿåˆ—å…ƒç´ ä¸ªæ•°
-    bool empty() const{ return size() == 0;}       //é˜Ÿåˆ—æ˜¯å¦ä¸ºç©º
-    bool full() const { return size() == maxsize;} //é˜Ÿåˆ—æ˜¯å¦ä¸ºæ»¡
+    int size() const  { return cursize;}           //¶ÓÁĞÔªËØ¸öÊı
+    bool empty() const{ return size() == 0;}       //¶ÓÁĞÊÇ·ñÎª¿Õ
+    bool full() const { return size() == maxsize;} //¶ÓÁĞÊÇ·ñÎªÂú
 
-    bool push(const Type &x)                       //pushæ–¹æ³•ï¼Œå…ƒç´ æ”¾åˆ°å¯¹å°¾rearå¤„
+    bool push(const Type &x)                       //push·½·¨£¬ÔªËØ·Åµ½¶ÔÎ²rear´¦
     {
         if(full()) return false;
         data[rear] = x;
@@ -53,7 +53,7 @@ public:
         cursize+=1;
         return true;
     }
-    bool pop(Type &x)                             //popæ–¹æ³•ï¼Œå–é˜Ÿåˆ—å¤´frontå¤„å…ƒç´ å‡ºé˜Ÿ
+    bool pop(Type &x)                             //pop·½·¨£¬È¡¶ÓÁĞÍ·front´¦ÔªËØ³ö¶Ó
     {
         if(empty()) return false;
         x = data[front];
@@ -61,7 +61,7 @@ public:
         cursize-=1;
         return true;
     }
-    bool get_front(Type &x)                      //è·å–é˜Ÿå¤´å…ƒç´ 
+    bool get_front(Type &x)                      //»ñÈ¡¶ÓÍ·ÔªËØ
     {
         if(empty()) return false;
         x = data[front];

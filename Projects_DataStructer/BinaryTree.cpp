@@ -31,9 +31,8 @@ using namespace std;
     bool operator!=(const BTree<Type> &bt)const;
     bool IsFullBinaryTree1() const;              //非递归 判断是否为满二叉树
     bool IsFullBinaryTree() const;               //  递归 判断是否为满二叉树
-
 */
-/////////////////////////////////////////////////////////////////////
+
 template<class T>
 T Max(T a, T b)
 {
