@@ -2,11 +2,13 @@
 一些编程代码
 
 ##一、Projects_c
-这里包含《C语言程序设计》谭浩强版、《C和指针》课后习题以及一些相关的C编程练习题；
+- 这里包含《C语言程序设计》谭浩强版、《C和指针》课后习题以及一些相关的C编程练习题；
 
 ##二、Projects_c++
 
 ##三、Projects_DataStructer
+- 一些数据结构：栈、队列、链表、二叉树、小根堆、 进程调度算法、赫夫曼编码等
+- 后序将上传AVLtree、RBtree、
 
 ##四、Projects_Algorhhtm
 
