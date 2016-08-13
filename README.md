@@ -1,14 +1,14 @@
 # CodePractice
 一些编程代码
 
-##一、Project_c
+##一、Projects_c
 这里包含《C语言程序设计》谭浩强版、《C和指针》课后习题以及一些相关的C编程练习题；
 
-##二、Projiect_c++
+##二、Projects_c++
 
-##三、Projiect_DataStructer
+##三、Projects_DataStructer
 
-##四、Projiect_Algorhhtm
+##四、Projects_Algorhhtm
 
 ##五、memcached-1.4.20
 这里包含对memcached-1.4.20源码剖析的一些注解</br>
