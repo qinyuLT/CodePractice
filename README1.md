@@ -8,12 +8,12 @@
 
 ##三、Projects_DataStructer
 - 一些数据结构：栈、队列、链表、二叉树、小根堆、 进程调度算法、赫夫曼编码等
-- 后序将上传AVLtree、RBtree、
+- 后序将上传AVLtree、RBtree等
 
 ##四、Projects_Algorhhtm
 
 ##五、memcached-1.4.20
-这里包含对memcached-1.4.20源码剖析的一些注解</br>
+- 这里包含对memcached-1.4.20源码剖析的一些注解</br>
 
 ###剖析方式
 1.工具:[source insight](http://www.sourceinsight.com/)</br>
