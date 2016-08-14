@@ -10,7 +10,7 @@
 - 一些数据结构：栈、队列、链表、二叉树、小根堆、 进程调度算法、赫夫曼编码等
 - 后序将上传AVLtree、RBtree等
 
-##四、Projects_Algorhhtm
+##四、Projects_Algorithm
 - 常用算法
 
 ##五、memcached-1.4.20
