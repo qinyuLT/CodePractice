@@ -8,7 +8,7 @@
 
 ##三、Projects_DataStructer
 - 一些数据结构：栈、队列、链表、二叉树、小根堆、 进程调度算法、赫夫曼编码等
-- 后序将上传AVLtree、RBtree等
+- 后续将上传AVLtree、RBtree等
 
 ##四、Projects_Algorithm
 - 常用算法
